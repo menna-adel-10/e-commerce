@@ -1,0 +1,40 @@
+<main class="p-2 sm:ml-[200px]">
+  <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+    <div class="flex justify-between items-center">
+      <h2 class="text-2xl font-bold tracking-tight text-gray-50">
+        Our Newest products
+      </h2>
+
+      <a routerLink="" class="text-primaryColor flex items-center gap-x-1">
+        See All
+        <span><i class="fa-solid fa-circle-arrow-right hover:translate-x-2 transition-transform"></i></span>
+      </a>
+    </div>
+
+    <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 xl:gap-x-8">
+      <div *ngFor="let item of new" class="group relative bg-[#1f2937] p-6 rounded-lg">
+        <div class="aspect-square w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
+          <img [src]="item.imgUrl" [routerLink]="item.path" alt="product image"
+            class="cursor-pointer w-full h-full object-cover object-center lg:h-full lg:w-full" />
+        </div>
+
+        <div class="mt-4 text-headingColor font-semibold flex items-center justify-between">
+          <div>
+            <h3 class="line-clamp-1 text-md cursor-pointer">
+              <a [routerLink]="item.path">
+                {{ item._id }}
+              </a>
+            </h3>
+            <p class="mt-1 text-md text-gray-400 font-bold">
+              {{ item.category }}
+            </p>
+          </div>
+
+          <p class="flex text-lg font-bold text-gray-50">
+            ${{ item.price }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
